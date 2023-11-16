@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataBase</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <h1 id="pageHead">Library Management</h1>
+    <br>
+    <header>
+        <a type="button" class="tablinks active" onclick="" style="text-decoration: none; color: black;">Library
+            Management</a>
+        <a type="button" class="tablinks" onclick="" style="text-decoration: none; color: black;">Online Retail DB</a>
+    </header>
+    <br>
+    <br>
+    <div class="lib">
+        <form id="memberForm" action="http://localhost:3306/addMember" method="post">
+            <label for="action">Select Action:</label>
+            <select id="action" name="action" onchange="toggleFields()">
+                <option value="">--SELECT--</option>
+                <option value="add">Add Member</option>
+                <option value="view">View Members</option>
+            </select><br>
+
+            <div id="FNameField" style="display:none;">
+                <label for="fName">First Name:</label>
+                <input type="text" id="fName" name="fName" required><br>
+            </div>
+
+            <div id="LNameField" style="display:none;">
+                <label for="lName">Last Name:</label>
+                <input type="text" id="lName" name="lName" required><br>
+            </div>
+
+            <div id="AddressField" style="display:none;">
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required><br>
+            </div>
+
+            <div id="EmailField" style="display:none;">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" required><br>
+            </div>
+
+            <div id="PhoneField" style="display:none;">
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" name="phone" required><br>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="retail">
+        <!-- Content for Online Retail DB tab goes here -->
+    </div>
+
+    <script>
+        function toggleFields() {
+            console.log("Function called");
+
+            const action = document.getElementById("action").value;
+            const fields = ["FNameField", "LNameField", "AddressField", "EmailField", "PhoneField"];
+
+            fields.forEach(field => {
+                const fieldElement = document.getElementById(`${field}`);
+                if (fieldElement) {
+                    fieldElement.style.display = block;
+                }
+            });
+
+            document.getElementById("memberForm").action = action !== "view" ? `http://localhost:3006/${action}Member` : "http://localhost:3000/viewMembers";
+        }
+
+
+    </script>
+</body>
+
+</html>
