@@ -1,0 +1,123 @@
+.asterisk{
+    color: red;
+    padding:5px;
+  }
+/* .input-fname{
+    text-w
+} */
+form {
+  /* margin: 0 auto;
+  width: 300px; */
+  margin: 4% auto;
+  padding: 5vw;
+  /* height: 50vw; */
+  width: fit-content;
+  font-size: 20px;
+  font-family: 'Kanit',sans-serif;
+  color: rgb(130, 129, 145);
+  border-radius: 30px;
+  background-color: rgba(0,0,0,0.86);
+  border: 1px solid transparent;
+}
+#members {
+  border-radius: 15px;
+  margin: 10% auto; /* top and bottom margin 10%, left and right margin auto to center */
+  border-collapse: collapse;
+  width: 80%; /* Adjust the width as needed */
+}
+
+#headings th {
+  background-color: #f2f2f2;
+  color: #333;
+  padding: 8px;
+  text-align: center;
+}
+
+#members td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+/* Set font color for chat content */
+#members td {
+  color: white; /* Change the color code as needed */
+  background-color: rgba(0,0,0,0.5);
+}
+
+body{
+  text-align: center;
+  background-image:url("lib.jpg") ;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+input[type="email"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+input[type="number"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.button{
+  background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    
+}
+  #FNameValidationMessage,#LNameValidationMessage,#MailValidationMessage,#RnoValidationMessage,#addValidationMessage,#NumberValidationMessage{
+    color:red;
+    font-size:12px;
+    margin-top:0.25rem;
+    margin-bottom: 0;
+    width:100%;
+  }
+  .tabs {
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff00;
+  }
+  
+  .tablinks {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 16px;
+    background-color: #ddd;
+    transition: background-color 0.3s;
+  }
+  
+  .tablinks:hover {
+    background-color: #bbb;
+  }
+
+  
+  input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 10%;
+}
+  input[type="submit"]:hover {
+    opacity: 0.8;
+}

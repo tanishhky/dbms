@@ -1,0 +1,119 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+    <form method="post">
+        <div class="tabs">
+            <a type="button" class="tablinks active" href="index.html" style="text-decoration: none; color: black;">
+                Library Management
+            </a>
+            <a type="button" class="tablinks" href="onlineRetail.html" style="text-decoration: none; color: black">
+                Online Retail
+            </a>
+        </div>
+        <br>
+        <br>
+        <div class="pname">
+            <span class="input-pname">
+                Buyer Name
+                <span class="asterisk">&nbsp*</span>
+            </span>
+            <input type="text" id="pname" name="pname" required>
+            <span id="PNameValidationMessage"></span>
+        </div>
+        <br>
+        <div class="pid">
+            <span class="input-pid">
+                Order ID
+                <span class="asterisk">&nbsp*</span>
+            </span>
+            <input type="number" id="pid" name="pid" required>
+
+            <span id="pidValidationMessage"></span>
+        </div>
+        <br>
+        <div class="cid">
+            <span class="input-amt">
+                Customer ID
+                <span class="asterisk">&nbsp*</span>
+            </span>
+            <input type="number" id="amt" name="amt" required>
+            <span id="amtValidationMessage"></span>
+        </div>
+        <br>
+        <div class="cd">
+            <span class="input-qty">
+                Checkout Date
+                <span class="asterisk">&nbsp*</span>
+            </span>
+            <input type="text" title="qty" id="qty" name="qty" required />
+            <span id="qtyValidationMessage"></span>
+        </div>
+        <br>
+        <div class="dd">
+            <span class="input-qty">
+                Delievery Date
+                <span class="asterisk">&nbsp*</span>
+            </span>
+            <input type="text" title="qty" id="qty" name="qty" required />
+            <span id="qtyValidationMessage"></span>
+        </div>
+        <br>
+        <br>
+        <button title="SUBMIT" value="Submit" class="button" onclick="validateForm()">
+            Add Product
+        </button>
+
+
+    </form>
+    <table id="members">
+        <tr id="headings">
+            <th id="tabHead">Buyer Name</th>
+            <th id="tabHead">Order ID</th>
+            <th id="tabHead">Customer ID</th>
+            <th id="tabHead">Checkout Date</th>
+            <th id="tabHead">Delievery Date</th>
+        </tr>
+        <tr>
+            <td>Tanishk Yadav</td>
+            <td>OD21110010266</td>
+            <td>AP21110010266</td>
+            <td>27-09-2023</td>
+            <td>29-Sep-2023</td>
+        </tr>
+        <tr>
+            <td>Ayon Sarkar</td>
+            <td>OD21110010286</td>
+            <td>AP21110010286</td>
+            <td>10-Feb-2023</td>
+            <td>12-Feb-2023</td>
+        </tr>
+        <tr>
+            <td>Dev Pandey</td>
+            <td>OD21110011085</td>
+            <td>AP21110011085</td>
+            <td>30-Sep-2023</td>
+            <td>02-Oct-2023</td>
+        </tr>
+        <tr>
+            <td>Sanjana Maini</td>
+            <td>OD21110010313</td>
+            <td>AP21110010313</td>
+            <td>20-Jul-2023</td>
+            <td>23-Jul-2023</td>
+        </tr>
+
+    </table>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
