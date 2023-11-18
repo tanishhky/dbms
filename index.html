@@ -1,84 +1,127 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DataBase</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <h1 id="pageHead">Library Management</h1>
-    <br>
-    <header>
-        <a type="button" class="tablinks active" onclick="" style="text-decoration: none; color: black;">Library
-            Management</a>
-        <a type="button" class="tablinks" onclick="" style="text-decoration: none; color: black;">Online Retail DB</a>
-    </header>
-    <br>
-    <br>
-    <div class="lib">
-        <form id="memberForm" action="http://localhost:3306/addMember" method="post">
-            <label for="action">Select Action:</label>
-            <select id="action" name="action" onchange="toggleFields()">
-                <option value="">--SELECT--</option>
-                <option value="add">Add Member</option>
-                <option value="view">View Members</option>
-            </select><br>
+    <form method="post">
+        <div class="tabs">
+            <a type="button" class="tablinks active" href="index.html" style="text-decoration: none; color: black;">
+                Library Management
+            </a>
+            <a type="button" class="tablinks" href="onlineRetail.html" style="text-decoration: none; color: black">
+                Online Retail
+            </a>
+        </div>
+        <br>
+        <br>
+        <div class="FrstName">
+            <span class="input-fname">
+                First Name
+                <span class="asterisk">&nbsp*</span>
+            </span>
+            <input type="text" id="fname" name="fname" required>
+            <span id="FNameValidationMessage"></span>
+        </div>
+        <br>
+        <div class="LastName">
+            <span class="input-lname">
+                Last Name
+                <span class="asterisk">&nbsp*</span>
+            </span>
+            <input type="text" id="lname" name="lname" required>
 
-            <div id="FNameField" style="display:none;">
-                <label for="fName">First Name:</label>
-                <input type="text" id="fName" name="fName" required><br>
-            </div>
-
-            <div id="LNameField" style="display:none;">
-                <label for="lName">Last Name:</label>
-                <input type="text" id="lName" name="lName" required><br>
-            </div>
-
-            <div id="AddressField" style="display:none;">
-                <label for="address">Address:</label>
-                <input type="text" id="address" name="address" required><br>
-            </div>
-
-            <div id="EmailField" style="display:none;">
-                <label for="email">Email:</label>
-                <input type="text" id="email" name="email" required><br>
-            </div>
-
-            <div id="PhoneField" style="display:none;">
-                <label for="phone">Phone:</label>
-                <input type="text" id="phone" name="phone" required><br>
-            </div>
-
-            <button type="submit">Submit</button>
-        </form>
-    </div>
-
-    <div class="retail">
-        <!-- Content for Online Retail DB tab goes here -->
-    </div>
-
-    <script>
-        function toggleFields() {
-            console.log("Function called");
-
-            const action = document.getElementById("action").value;
-            const fields = ["FNameField", "LNameField", "AddressField", "EmailField", "PhoneField"];
-
-            fields.forEach(field => {
-                const fieldElement = document.getElementById(`${field}`);
-                if (fieldElement) {
-                    fieldElement.style.display = block;
-                }
-            });
-
-            document.getElementById("memberForm").action = action !== "view" ? `http://localhost:3006/${action}Member` : "http://localhost:3000/viewMembers";
-        }
-
-
-    </script>
+            <span id="LNameValidationMessage"></span>
+        </div>
+        <br>
+        <div class="mail">
+            <span class="input-mail">
+                Email
+                <span class="asterisk">&nbsp*</span>
+            </span>
+            <input type="email" id="email" name="email" required>
+            <span id="MailValidationMessage"></span>
+        </div>
+        <br>
+        <div class="Regno">
+            <span class="input-regno">
+                Member ID
+                <span class="asterisk">&nbsp*</span>
+            </span>
+            <input type="text" title="RegNum" placeholder="Like AP21100XXXXX" id="rno" name="rno" required/>
+            <span id="RnoValidationMessage"></span>
+        </div>
+        <br>
+        <div class="addr">
+            <span class="input-addr">
+                Address
+                <span class="asterisk">&nbsp*</span>
+            </span>
+            <input type="text" id="address" name="address" required>
+            <span id="addValidationMessage"></span>
+        </div>
+        <br>
+        <div class="phone">
+            <span class="input-phone">
+                Phone number
+                <span class="asterisk">&nbsp*</span>
+            </span>
+            <input type="number" id="no" name="no" required>
+            <span id="NumberValidationMessage"></span>
+        </div>
+        <br>
+        <br>
+        <button title="SUBMIT" value="Submit" class="button" onclick="validateForm()">
+            Add Student
+        </button>      
+    </form>
+    <table id="members">
+        <tr id="headings">
+            <th id="tabHead">Member ID</th>
+            <th id="tabHead">First Name</th>
+            <th id="tabHead">Last Name</th>
+            <th id="tabHead">Address</th>
+            <th id="tabHead">Email ID</th>
+            <th id="tabHead">Phone Number</th>
+        </tr>
+        <!-- <tr>
+            <td>AP21110010266</td>
+            <td>Tanishk</td>
+            <td>Yadav</td>
+            <td>459A/16, Civil Lines, Gurugram</td>
+            <td>tanishhky@gmail.com</td>
+            <td>9999095439</td>
+        </tr>
+        <tr>
+            <td>AP21110010286</td>
+            <td>Ayon</td>
+            <td>Sarkar</td>
+            <td>459A/16, Civil Lines, Gurugram</td>
+            <td>ayonsarkar380@gmail.com</td>
+            <td>8735247537</td>
+        </tr>
+        <tr>
+            <td>AP21110011085</td>
+            <td>Dev</td>
+            <td>Pandey</td>
+            <td>459A/16, Civil Lines, Gurugram</td>
+            <td>devpandey@gmail.com</td>
+            <td>7427097876</td>
+        </tr>
+        <tr>
+            <td>AP21110010313</td>
+            <td>Sanjana</td>
+            <td>Maini</td>
+            <td>MG Road, Gurugram</td>
+            <td>sanjumaini18@gmail.com</td>
+            <td>8977264564</td>
+        </tr> -->
+        
+    </table>
+    <script src="script.js"></script>
 </body>
-
 </html>
